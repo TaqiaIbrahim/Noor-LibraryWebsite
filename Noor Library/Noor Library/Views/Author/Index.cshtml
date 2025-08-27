@@ -1,0 +1,28 @@
+﻿@model Noor_Library.ViewModel.ViewModelForm
+
+<section class="container py-5">
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <h1 class="h1">مؤلفو الكتب</h1>
+            <p>
+                
+            </p>
+        </div>
+    </div>
+    <div class="row">
+    @foreach(var item in Model.authors)
+    {
+                        
+        
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    <img src=@string.Format("/uploads/Images/{0}",item.Image) class="rounded-circle  img-fluid im border" style="height:25rem;width:20rem; object-fit:cover" />
+                </a>
+                <h5 class="text-center mt-3 mb-3">@item.Name</h5>
+                <p class="text-center"><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">معلومات عن المؤلف</a></p>
+            </div>
+
+        
+    }       
+    </div>
+</section>

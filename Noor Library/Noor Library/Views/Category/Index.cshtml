@@ -1,0 +1,68 @@
+﻿@model ViewModelForm
+
+<div class="container py-5">
+    <h1>أقسام الكتب</h1>
+    <div class="row justify-content-center mt-5">
+        <div class="col-6 justify-content-center">
+            <ul class="list-group">
+                @foreach (var item in Model.categories)
+                {
+                    // نصنع ID خاص لكل كاتيجوري (مثلاً category-1, category-2 ...)
+                    var collapseId = $"collapse-{item.Id}";
+
+                    <li class="list-group-item"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#@collapseId"
+                        aria-expanded="false"
+                        aria-controls="@collapseId"
+                        style="cursor:pointer;">
+                        @item.Name
+                    </li>
+
+                    <ul class="list-group collapse ms-3" id="@collapseId">
+                        @foreach (var book in Model.books.Where(b => b.Category.Id == item.Id))
+                        {
+                            <li class="list-group-item">
+                                <a asp-controller="Book"
+                                   asp-action="Details"
+                                   asp-route-id="@book.Id"
+                                   style="text-decoration:none">
+                                    @book.Title
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                            @* @model ViewModelForm
+
+<div class="container py-5">
+    <h1>أقسام الكتب</h1>
+    <div class="row justify-content-center mt-5">
+        
+    <div class="col-6 justify-content-center">
+        <ul class="list-group ">
+                @foreach (var item in Model.categories)
+                {
+                    <li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">@item.Name</li>
+                    <ul class="list-group start-0 ">
+           @foreach(var book in Model.books)
+                        {
+                            if (book.Category.Name == item.Name)
+                            {
+                                <li class="list-group-item collapse" id="collapseExample"><a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" style="text-decoration-line:none">@book.Title </a></li>
+                            }
+                           
+                        }
+        
+    </ul>
+                    }
+</ul>
+    </div>
+    </div>
+</div> *@

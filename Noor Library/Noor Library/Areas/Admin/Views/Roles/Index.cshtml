@@ -1,0 +1,95 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "الصلاحيات";
+    var index = 1;
+}
+
+<!-- Content wrapper -->
+<!-- Custom style1 Breadcrumb -->
+<div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <partial name="_roleForm" model="new IdentityRole()" />
+
+        <!-- Users List Table -->
+        <div class="card">
+
+            <div class="row gx-3 gy-2 align-items-center mt-1 mb-4 ms-1 me-1">
+
+
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <div class=" justify-content-center  d-grid gap-2 ">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive text-nowrap">
+
+
+                    <table class="table TProject">
+                        <thead>
+                            <tr>
+                                <th>الرقم</th>
+
+
+                                <th>
+                                    الصلاحية
+
+                                </th>
+
+
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(index++)</td>
+                                    <td> @item.Name</td>
+                                    <th>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+
+                                                
+                                                <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('هل تريد حذف هذا الحقل؟')" class="dropdown-item" id="confirmText">
+                                                    <i class="bx bxs-trash-alt icon-padding delet-color" aria-hidden="true"></i>
+                                                    حذف
+                                                </a>
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </th>
+
+
+
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

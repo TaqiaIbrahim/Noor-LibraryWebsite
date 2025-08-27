@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noor Library", "Noor Library\Noor Library.csproj", "{AB127C87-5909-4D36-9023-308936536B45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB127C87-5909-4D36-9023-308936536B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB127C87-5909-4D36-9023-308936536B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB127C87-5909-4D36-9023-308936536B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB127C87-5909-4D36-9023-308936536B45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {977691B2-8B94-483D-BE79-8383AA9BBC7D}
+	EndGlobalSection
+EndGlobal

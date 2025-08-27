@@ -1,0 +1,81 @@
+﻿
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "الملف الشخصي";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+@*<h4>@ViewData["Title"]</h4>*@
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<Card class="bg-gray">
+    <form id="profile-form" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Input.profile" class="w-100 mb-2"></label>
+                    @if (Model.Input.profile != null)
+                    {
+                        <img id="profile" alt="profile" src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.profile)) " width="150" class="rounded-circle" />
+                    }
+                    else
+                    {
+                        <img id="profile" alte="profile" src="~/uploads/male_user.png " width="150" />
+                    }
+                    <div class="custom-file mt-4 mb-2">
+                        <label asp-for="Input.profile" class="form-label">صورة المستخدم</label>
+                        <div class="input-group">
+                            <input asp-for="Input.profile" type="file" accept="image/*" class="form-control" id="inputGroupFile04" id="File" name="File"
+                                   aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                   onchange="document.getElementById('profile).src=window.URL.createObjectURL(this.files[0])" />
+
+
+                            <span asp-validation-for="Input.profile " class="text-danger"></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                        <div class="col-md-6 mt-3">
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Input.firstName"></label>
+                                <input asp-for="Input.firstName" class="form-control" />
+                                <span asp-validation-for="Input.firstName" class="text-danger"></span>
+                            </div>
+                        <div class="form-group">
+                             <label asp-for="Input.lastName"></label>
+                             <input asp-for="Input.lastName" class="form-control" />
+                             <span asp-validation-for="Input.lastName" class="text-danger"></span>
+                                   </div>
+
+                            <div class="form-group mt-3">
+                                <label asp-for="Username"></label>
+                                <input asp-for="Username" class="form-control" disabled />
+                            </div>
+                            <div class="form-group mt-3">
+                                <label asp-for="Input.PhoneNumber"></label>
+                                <input asp-for="Input.PhoneNumber" class="form-control" />
+                                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                            </div>
+                            
+
+ 
+
+                        </div>
+
+                        <button id="update-profile-button" type="submit" class="btn btn-primary mt-3 w-25 justify-content-lg-end" >حفظ</button>
+                        @*<input type="file" accept="image/*" asp-for="Input.ProfilePicture" class="custom-file-input" />*@
+
+
+
+
+                    </div>
+             
+
+    </form>
+</Card>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
